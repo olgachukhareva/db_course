@@ -19,7 +19,7 @@ SELECT Name FROM city WHERE CountryCode = "AUS" OR "RUS";
 -- узнать все города, которые НЕ находятся в Китае из таблицы city
 SELECT Name FROM city WHERE CountryCode != "CHN";
 -- узнать данные, где язык = Английский или код страны НЕ “CAN” и процент говорящих НИ меньше 50 из таблицы countrylanguage
-SELECT * FROM Countrylanguage WHERE Language = "English" OR CountryCode != "CAN" AND Percentage >= 50;
+SELECT * FROM Countrylanguage WHERE (Language = "English" OR CountryCode != "CAN") AND Percentage >= 50;
 -- получить данные только определенных языков: Русский и Английский из таблицы countrylanguage
 SELECT * FROM Countrylanguage WHERE Language = "Russian" AND "English";
 -- получить все города, населения которых от 1 000 000 до 5 000 000 из таблицы city
