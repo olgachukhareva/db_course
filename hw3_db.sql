@@ -1,3 +1,4 @@
+use employeedb;
 -- отсортируй данные по зарплате 
 SELECT * FROM EMPLOYEE ORDER BY salary;
 
@@ -28,16 +29,11 @@ SELECT round(avg(salary)) FROM EMPLOYEE;
 -- узнай минимальную и максимальную зарплату
 SELECT min(salary), max(salary) FROM EMPLOYEE;
 
-select * from EMPLOYEE;
-
 -- подсчитай количество сотрудников
 SELECT count(empID) FROM EMPLOYEE;
-
-select * from EMPLOYEE;
 
 -- выведи количество сотрудников в каждом отделе
 SELECT dept, count(*) FROM EMPLOYEE GROUP BY dept;
 
 -- выведи отделы, где минимальная зарплата больше 40 000
-
-
+SELECT dept, min(salary) FROM EMPLOYEE GROUP BY dept HAVING min(salary) > 40000;
