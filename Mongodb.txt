@@ -1,0 +1,62 @@
+1.Опишите преимущества NoSQL
+Данные хранятся несколькими способами, хорошо для стартапа, гибкая.
+
+2. Добавить коллекцию в БД - admin (SQL, NoSQL) 
+File - Open SQL Script
+IMPORT
+
+3. Подключиться к БД (SQL, NoSQL) 
+use admin;
+use admin
+
+4. Получить все данные (SQL, NoSQL)
+SELECT * FROM episodes;
+db.episodes.find()
+
+5. Получить данные эпизода “Gray Matter” (SQL, NoSQL)
+SELECT * FROM episodes WHERE title= "Gray Matter";
+db.episodes.find({"title": "Gray Matter"})
+
+6. Получить название первого эпизода (SQL, NoSQL)
+SELECT titlee FROM episodes WHERE episode= 1;
+db.episodes.find({"episode": "1"}, {"title": 1})
+
+7. Получить все эпизоды, где есть персонаж Jimmy McGill (SQL, NoSQL)
+SELECT episode FROM episodes WHERE characters= "Jimmy McGill";
+db.episodes.find({"characters" : "Jimmy McGill"}, {"episode": 1})
+
+8. Получить первый эпизод 3 сезона (SQL, NoSQL)
+SELECT episode, season FROM episodes WHERE episode= 1, season= 3;
+db.episodes.find({"episode": "1","season": "3"})
+
+9. Получить общее количество документов в коллекции (SQL, NoSQL)
+SELECT count(id) FROM episodes;
+db.episodes.countDocuments()
+
+10. Получить 5 последних эпизодов (SQL, NoSQL)
+SELECT * FROM episodes ORDER BY id DESC LIMIT 5;
+db.episodes.find().skip(97).limit(5)
+
+11. Получить данные эпизода(-ов), где в массиве персонажей - "Jimmy McGill", "Mike Erhmantraut", "Kim Wexler", "Howard Hamlin", "Chuck McGill", "Nacho Varga" (NoSQL)
+db.episodes.find ({characters: {$all : ["Jimmy McGill", "Mike Erhmantraut", "Kim Wexler", "Howard Hamlin", "Chuck McGill", "Nacho Varga"]}})
+
+12. Получить эпизоды, где 5 персонажей (NoSQL)
+db.episodes.find ({characters: {$size: 5}})
+
+
+13. Получить все эпизоды, где больше 5 персонажей (NoSQL)
+db.episodes.find ({"characters": {$gt: "5"}})
+НЕ СДЕЛАЛА!!!!
+
+
+14. Получить данные, где 4 сезон или 10 серия (SQL, NoSQL)
+SELECT * FROM episodes WHERE season = "4" OR series = "10";
+db.episodes.find ({$or: [{"season": "4"}, {"series": "10"}]})
+
+15. Получить данные, где 4 сезон и 10 серия (SQL, NoSQL)
+SELECT * FROM episodes WHERE season = "4" AND series = "10";
+db.episodes.find ({$and: [{"season": "4"}, {"series": "10"}]})
+
+16. Получить данные, где не 4 сезон (SQL, NoSQL)
+SELECT * FROM episodes WHERE season != "4";
+db.episodes.find ({$not: {"season": "4"}})
