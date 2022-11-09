@@ -45,8 +45,7 @@ db.episodes.find ({characters: {$size: 5}})
 
 
 13. Получить все эпизоды, где больше 5 персонажей (NoSQL)
-db.episodes.find ({"characters": {$gt: "5"}})
-НЕ СДЕЛАЛА!!!!
+db.episodes.find({$where: 'this.characters.length>5'})
 
 
 14. Получить данные, где 4 сезон или 10 серия (SQL, NoSQL)
